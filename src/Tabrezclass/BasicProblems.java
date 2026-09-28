@@ -34,7 +34,7 @@ public class BasicProblems {
 //        System.out.println("LCM: "+LCM3(9,5));
 //        System.out.println("Fibonacci: "+fibonacci(10));
 //        System.out.println(strongnum(145));
-        digital(2146);
+        digital(7548);
         // star(3);
 
     }
@@ -257,7 +257,7 @@ public class BasicProblems {
         return og == sum;
     }
 
-    static void digital(int n) {
+    static void digital(int n) {//2146
         int temp = n,count=0;
 
         while (temp >= 10) {
@@ -265,19 +265,19 @@ public class BasicProblems {
             count++;
         }
 
-        int first = temp;
         temp = n;
 
         while(temp>0){
             int digit = temp%10;
-            int repeat = n/(int)Math.pow(10,count-1);
-            repeat /=n;
-            System.out.println(repeat);
-            for(int i=1;i<=repeat;i++){
+            int repeat = (n/(int)Math.pow(10,count--))%10;
+
+            for(int i=repeat;i>0;i--){
                 System.out.print(digit+" ");
             }
-            System.out.println();
 
+
+            System.out.println();
+            temp/=10;
         }
 
 
