@@ -30,10 +30,12 @@ public class BasicProblems {
 //        System.out.println(decimaltoBinary(13));
 //        System.out.println(findSqrtPerfect(49));
 //
-        System.out.println("GCD: "+GCD2(8,12));
-        System.out.println("LCM: "+LCM3(9,5));
+//        System.out.println("GCD: "+GCD2(8,12));
+//        System.out.println("LCM: "+LCM3(9,5));
 //        System.out.println("Fibonacci: "+fibonacci(10));
-        System.out.println(strongnum(145));
+//        System.out.println(strongnum(145));
+        digital(2456);
+        star(3);
 
     }
 
@@ -256,6 +258,26 @@ public class BasicProblems {
             n/=10;
         }
         return og==sum;
+    }
+
+    static void digital(int n){
+        while(n>0){
+            int last = n%10;
+            for(int i=1;i<=last;i++){
+                System.out.print(last);
+            }
+            System.out.println();
+            n/=10;
+        }
+    }
+
+    static void star(int n){
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=n;j++){
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
     }
 
 }
