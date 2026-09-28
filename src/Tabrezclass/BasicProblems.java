@@ -6,29 +6,34 @@ public class BasicProblems {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.println("Prime number logic 1: "+prime1(8));
-        System.out.println("Prime number logic 2: "+prime2(9));
-        System.out.println("Prime number logic 3: "+prime3(9));
-
-        System.out.println("count digit 1: "+countdigit1(456));
-        System.out.println("count digit 2: "+countdigit2(456));
-
-        System.out.println("sum of digit: "+sumofdigit(1234));
-
-        nthMaximumMinimum(12314);
-
-        System.out.println("Sum of First and Last Digit: "+sumofFirstnLastDigit(7897));
-
-        System.out.println(xylem(1234)?"Xylem":"Phloem");
-
-        tables(2);
-
-        System.out.println(palindrome(121)? "Palindrome":"Not Palindrome");
-
-        System.out.println(binaryToDecimal(1101));
-
-        System.out.println(decimaltoBinary(13));
-        System.out.println(findSqrtPerfect(49));
+//        System.out.println("Prime number logic 1: "+prime1(8));
+//        System.out.println("Prime number logic 2: "+prime2(9));
+//        System.out.println("Prime number logic 3: "+prime3(9));
+//
+//        System.out.println("count digit 1: "+countdigit1(456));
+//        System.out.println("count digit 2: "+countdigit2(456));
+//
+//        System.out.println("sum of digit: "+sumofdigit(1234));
+//
+//        nthMaximumMinimum(12314);
+//
+//        System.out.println("Sum of First and Last Digit: "+sumofFirstnLastDigit(7897));
+//
+//        System.out.println(xylem(1234)?"Xylem":"Phloem");
+//
+//        tables(2);
+//
+//        System.out.println(palindrome(121)? "Palindrome":"Not Palindrome");
+//
+//        System.out.println(binaryToDecimal(1101));
+//
+//        System.out.println(decimaltoBinary(13));
+//        System.out.println(findSqrtPerfect(49));
+//
+        System.out.println("GCD: "+GCD2(8,12));
+        System.out.println("LCM: "+LCM3(9,5));
+//        System.out.println("Fibonacci: "+fibonacci(10));
+        System.out.println(strongnum(145));
 
     }
 
@@ -114,17 +119,17 @@ public class BasicProblems {
         return first+last;
     }
 
-    static boolean xylem(int n){
-        int last = n%10;
-        int middlesum=0;
-        int first=0;
+    static boolean xylem(int n){//1234
+        int last = n%10;//4
+        int middlesum=0;//0
+        int first=0;//0
         n/=10;//123
-        while(n>=10){
+        while(n>=10){//123>=10-->12>=10
                 middlesum +=n%10;//3+2
-                n/=10;
+                n/=10;//123-->12-->1
         }
         first = n;
-        return (first+last) == middlesum;
+        return (first+last) == middlesum;//T or F
     }
 
     static void tables(int n){
@@ -170,4 +175,87 @@ public class BasicProblems {
         return false;
 
     }
+
+
+    static int GCD1(int a , int b){
+        int n = a>b? a:b;
+        for(int i=n;i>0;i--){
+            if(n%i==0) return i;
+        }
+        return 1;
+    }
+
+    static int GCD2(int a , int b){
+        int res = 0;
+        while(a!=0 && b!=0){
+            if(a>b){
+                a = a%b;
+            }
+            else
+                b = b%a;
+        }
+        if(a==0) return b;
+        return a;
+    }
+
+    static int GCD3(int a,int b){
+        while(b>0){//a=12,b=8
+            int temp = b;
+            b = a%b;
+            a=temp;
+        }
+        return a;
+    }
+
+
+
+    static int fibonacci(int n){
+        if(n<=1){
+            return n;
+        }
+        return fibonacci(n-1)+fibonacci(n-2);
+    }
+
+    static int LCM1(int a,int b){
+        return (a*b)/GCD1(a,b);
+    }
+
+    static int LCM2(int a ,int b){
+        int k = Math.max(a,b);
+        int i;
+        for(i = k; ;i+=k){
+            if(i%a==0 && i%b==0) break;
+        }
+        return i;
+    }
+
+    static int LCM3(int a,int b){
+        int max = a>b? a:b;
+        int step = max;
+        while(true){
+            if(max%b==0 && max%a==0){
+                break;
+            }
+            max+=step;
+        }
+        return max;
+    }
+
+    static boolean strongnum(int n){//145
+        int og = n;
+        int sum = 0;
+
+
+        while(n>0){        //145
+            int digit = n%10;
+            int ans = 1;
+            for(int i=digit;i>1;i--){       //5>1
+                ans *=i;                  //1*5=5
+            }
+            sum+=ans;
+            n/=10;
+        }
+        return og==sum;
+    }
+
 }
