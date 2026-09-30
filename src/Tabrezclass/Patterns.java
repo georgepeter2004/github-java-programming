@@ -16,9 +16,8 @@ public class Patterns {
 //        startriangle2(5);
 //        startriangle3(5);
 //        startriangle4(5);
-        startriangle5(5);
-        startriangle6(5);
-        startriangle7(5);
+
+        startriangle8(9);
 
 
     }
@@ -211,5 +210,32 @@ public class Patterns {
     }
 
 
+    static void startriangle8(int n){
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(i>=j && i+j<=n-1) System.out.print("* ");
+                else System.out.print("  ");
+            }
+            System.out.println();
+        }
+    }
 
+    static void startriangle9(int n){
+        n=11;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(!(i>=j+n/2 || i<=j-n/2 || i+j>=n-1+n/2 || i+j<=n-1-n/2)) System.out.print("* ");
+                else System.out.print("  ");
+            }
+            System.out.println();
+        }
+    }
+
+    static void startriangle10(int n){
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(i==j || i+j==n-1)
+            }
+        }
+    }
 }
