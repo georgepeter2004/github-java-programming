@@ -4,10 +4,10 @@ public class Patterns {
     public static void main(String[] args) throws Exception {
 //        star1();
 //        System.out.println();
-//
+
 //        star2(11);
 //        System.out.println();
-//
+
 //        star3(9);
 //        System.out.println();
 
@@ -17,7 +17,7 @@ public class Patterns {
 //        startriangle3(5);
 //        startriangle4(5);
 
-        startriangle8(9);
+          startriangle8(9);
 
 
     }
