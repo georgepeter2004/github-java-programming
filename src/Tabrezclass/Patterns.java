@@ -1,6 +1,6 @@
 package Tabrezclass;
 
- class Pattern {
+public class Patterns {
     public static void main(String[] args) throws Exception {
 //        star1();
 //        System.out.println();
@@ -17,8 +17,7 @@ package Tabrezclass;
 //        startriangle3(5);
 //        startriangle4(5);
 
-        startriangle11(
-                5);
+        startriangle14(5);
 
 
     }
@@ -247,4 +246,37 @@ package Tabrezclass;
         }
     }
 
+    static void startriangle12(int n){
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i>=j+n/2 || i<=j-n/2 || i+j>=n-1+n/2 || i+j<=n-1-n/2 ) System.out.print("* ");
+                else System.out.print("  ");
+
+            }
+            System.out.println();
+        }
+    }
+
+    static void startriangle13(int n){
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (!(i>=j+n/2 || i<=j-n/2 || i+j>=n-1+n/2 || i+j<=n-1-n/2 )) System.out.print("* ");
+                else System.out.print("  ");
+
+            }
+            System.out.println();
+        }
+    }
+
+    static void startriangle14(int n){
+        for (int i = 0; i < n; i++) {
+            int a = 1;
+            for (int j = 0; j < n; j++) {
+                if (i+j>=n-1 && i>=j) System.out.print((a++)+" ");
+                else System.out.print("  ");
+
+            }
+            System.out.println();
+        }
+    }
 }
