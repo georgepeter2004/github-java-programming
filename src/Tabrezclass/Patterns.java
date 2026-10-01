@@ -1,6 +1,6 @@
 package Tabrezclass;
 
-public class Patterns {
+ class Pattern {
     public static void main(String[] args) throws Exception {
 //        star1();
 //        System.out.println();
@@ -17,7 +17,8 @@ public class Patterns {
 //        startriangle3(5);
 //        startriangle4(5);
 
-          startriangle8(9);
+        startriangle11(
+                5);
 
 
     }
@@ -48,7 +49,7 @@ public class Patterns {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (i + j == n - 1 || i == 0 || j == 0 || j == n / 2
-                        || i == n / 2 || i == n - 1 || j == n - 1 || i == j )
+                        || i == n / 2 || i == n - 1 || j == n - 1 || i == j)
                     System.out.print("* ");
                 else System.out.print("  ");
             }
@@ -59,7 +60,7 @@ public class Patterns {
     static void star4(int n) throws Exception {
 
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j<n ; j++) {
+            for (int j = 0; j < n; j++) {
                 if (true) System.out.print("* ");
                 else System.out.print("  ");
             }
@@ -68,11 +69,10 @@ public class Patterns {
         }
     }
 
-    static void star5(int n) throws Exception{
-        for(int i=0;i<n;i++)
-        {
-            for(int j =0 ;j<n;j++){
-                if(true) System.out.print(i+" ");
+    static void star5(int n) throws Exception {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (true) System.out.print(i + " ");
                 else System.out.print("  ");
                 Thread.sleep(150);
             }
@@ -81,11 +81,10 @@ public class Patterns {
         }
     }
 
-    static void star6(int n) throws Exception{
-        for(int i=0;i<n;i++)
-        {
-            for(int j =0 ;j<n;j++){
-                if(true) System.out.print(j+" ");
+    static void star6(int n) throws Exception {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (true) System.out.print(j + " ");
                 else System.out.print("  ");
                 Thread.sleep(150);
             }
@@ -94,13 +93,12 @@ public class Patterns {
         }
     }
 
-    static void star7(int n) throws Exception{
+    static void star7(int n) throws Exception {
 
         char x = 'A';
-        for(int i=0;i<n;i++)
-        {
-            for(int j =0 ;j<n;j++){
-                if(true) System.out.print((x++)+" ");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (true) System.out.print((x++) + " ");
                 else System.out.print("  ");
                 Thread.sleep(150);
             }
@@ -109,12 +107,11 @@ public class Patterns {
         }
     }
 
-    static void star8(int n) throws Exception{
-        for(int i=0;i<n;i++)
-        {
+    static void star8(int n) throws Exception {
+        for (int i = 0; i < n; i++) {
             char x = 'A';
-            for(int j =0 ;j<n;j++){
-                if(true) System.out.print((x++)+" ");
+            for (int j = 0; j < n; j++) {
+                if (true) System.out.print((x++) + " ");
                 else System.out.print("  ");
                 Thread.sleep(150);
             }
@@ -135,26 +132,11 @@ public class Patterns {
         }
     }
 
-        static void startriangle2(int n){
+    static void startriangle2(int n) {
 
-            for(int i=0;i<n;i++)
-            {
-                for(int j =0 ;j<n;j++){
-                    if(i<=j) System.out.print("* ");
-                    else System.out.print("  ");
-                }
-                System.out.println();
-
-            }
-
-        }
-
-    static void startriangle3(int n){
-
-        for(int i=0;i<n;i++)
-        {
-            for(int j =0 ;j<n;j++){
-                if(i+j>=n-1) System.out.print("* ");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i <= j) System.out.print("* ");
                 else System.out.print("  ");
             }
             System.out.println();
@@ -163,12 +145,11 @@ public class Patterns {
 
     }
 
-    static void startriangle4(int n){
+    static void startriangle3(int n) {
 
-        for(int i=0;i<n;i++)
-        {
-            for(int j =0 ;j<n;j++){
-                if(i+j<=n-1) System.out.print("* ");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i + j >= n - 1) System.out.print("* ");
                 else System.out.print("  ");
             }
             System.out.println();
@@ -177,32 +158,45 @@ public class Patterns {
 
     }
 
-    static void startriangle5(int n){
-        for(int i=0;i<n;i++){
+    static void startriangle4(int n) {
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i + j <= n - 1) System.out.print("* ");
+                else System.out.print("  ");
+            }
+            System.out.println();
+
+        }
+
+    }
+
+    static void startriangle5(int n) {
+        for (int i = 0; i < n; i++) {
             int x = 1;
-            for(int j=0;j<n;j++){
-                if(i+j>=n-1) System.out.print((x++)+" ");
+            for (int j = 0; j < n; j++) {
+                if (i + j >= n - 1) System.out.print((x++) + " ");
                 else System.out.print("  ");
             }
             System.out.println();
         }
     }
 
-    static void startriangle6(int n){
-        for(int i=0;i<n;i++){
+    static void startriangle6(int n) {
+        for (int i = 0; i < n; i++) {
             char x = 'A';
-            for(int j=0;j<n;j++){
-                if(i+j>=n-1) System.out.print((x++)+" ");
+            for (int j = 0; j < n; j++) {
+                if (i + j >= n - 1) System.out.print((x++) + " ");
                 else System.out.print("  ");
             }
             System.out.println();
         }
     }
 
-    static void startriangle7(int n){
-        for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
-                if(i+j>=n-1) System.out.print((j%2==0)? "0 ":"1 ");
+    static void startriangle7(int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i + j >= n - 1) System.out.print(j % 2 + " ");
                 else System.out.print("  ");
             }
             System.out.println();
@@ -210,33 +204,46 @@ public class Patterns {
     }
 
 
-    static void startriangle8(int n){
-        for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
-                if(i>=j && i+j<=n-1) System.out.print("* ");
+    static void startriangle8(int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i >= j && i + j <= n - 1) System.out.print("* ");
                 else System.out.print("  ");
             }
             System.out.println();
         }
     }
 
-    static void startriangle9(int n){
-        n=11;
-        for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
-                if(!(i>=j+n/2 || i<=j-n/2 || i+j>=n-1+n/2 || i+j<=n-1-n/2)) System.out.print("* ");
+    static void startriangle9(int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i + j >= n - 1 && i <= j) System.out.print("* ");
+                else System.out.print("  ");
+            }
+            System.out.println();
+
+        }
+    }
+
+    static void startriangle10(int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i + j >= n - 1 && i >= j) System.out.print("* ");
                 else System.out.print("  ");
             }
             System.out.println();
         }
     }
 
-    static void startriangle10(int n){
-        for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
 
+    static void startriangle11(int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i + j <= n - 1 && i <= j) System.out.print("* ");
+                else System.out.print("  ");
 
             }
+            System.out.println();
         }
     }
 
