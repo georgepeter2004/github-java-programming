@@ -1,5 +1,4 @@
 package DSA;
-
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -39,9 +38,9 @@ public void insertAtPos(int pos,int val){
 
     for(int i=size-1;i>=pos;i--){
         arr[i+1]=arr[i];
-        size++;
     }
     arr[pos]=val;
+    size++;
 }
 
 public void insertAtbeg(int val){
@@ -230,6 +229,7 @@ public class DynamicArray {
                     val = sc.nextInt();
                     boolean res = list.contains(val);
                     System.out.println(res);
+                    break;
 
                 default :
                     System.out.println("Invalid Choice");
