@@ -1,4 +1,4 @@
-package basicproblems;
+package Tabrezclass;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -16,7 +16,7 @@ public class Arrayjava {
 
 
 
-        System.out.println(arraysfunc(a));
+        System.out.println(Arrays.toString(arrfun(a)));
     }
 
     public static int arraysfunc(int[] a){
@@ -27,11 +27,15 @@ public class Arrayjava {
         return n;
     }
 
-    public static void arrfun(int n[]){
+    public static int[] arrfun(int n[]){
         int s=0;
-        int e=
+        int e=n.length;
         while(s>e){
-
+            int temp = n[s];
+            n[s++] = n[e];
+            n[e++] = temp;
         }
+        return n;
     }
+
 }
