@@ -4,7 +4,8 @@ import java.util.*;
 
 public class Arrayjava {
     public static void main(String[] args) {
-
+      int a[] = {1,1,1,2,2,3,4,5,6,6};
+      int b[] = {1,1,3,3,2,2,7,8,8};
 
     }
 
@@ -80,7 +81,7 @@ public class Arrayjava {
 
 
 
-    public static int sunrise(int[] a) {
+    public static int visibleSunrise(int[] a) {
         int cur_max = a[0], count = 1, n = a.length;
         for (int i = 1; i < n; i++) {
             if (a[i] > cur_max) {
@@ -137,7 +138,7 @@ public class Arrayjava {
         Arrays.sort(a,0,a.length); // sort(array,start,end); //end is excluded
     }
 
-    public boolean containsDuplicate(int[] nums) {
+    public boolean containsDuplicate(int[] nums) {//L-217
         int n = nums.length;
         Arrays.sort(nums);
         for(int i=0;i<n-1;i++){
@@ -146,7 +147,7 @@ public class Arrayjava {
         return false;
     }
 
-    public int lastStoneWeight(int[] stones) {
+    public int lastStoneWeight(int[] stones) {//L-1046
         int n = stones.length;
         while(n>1){
             Arrays.sort(stones,0,n);
@@ -162,7 +163,17 @@ public class Arrayjava {
         return stones[0];
     }
 
-    public int trappingRainWaterLogic1(int[] height) {
+    public static int singlenumberInArray(int[] a){//L-136
+        //{1,2,1,2,5} --> o/p = 5
+        int ans = 0;
+
+        for(int i = 0;i<a.length;i++){
+            ans = ans^a[i];
+        }
+        return ans;
+    }
+
+    public int trappingRainWaterLogic1(int[] height) {//L-42
         int n = height.length,trapped=0;
         int[] left = new int[n];
 
@@ -186,7 +197,7 @@ public class Arrayjava {
     }
 
 
-    public int trappingRainWaterLogic2(int[] height) {
+    public int trappingRainWaterLogic2(int[] height) {//L-42
         int n = height.length,
                 rightmax = height[n-1],
                 leftmax = height[0],
@@ -210,15 +221,65 @@ public class Arrayjava {
         return trapped;
     }
 
-    public static int singlenumberInArray(int[] a){
-        //{1,2,1,2,5} --> o/p = 5
-        int ans = 0;
 
-        for(int i = 0;i<a.length;i++){
-            ans = ans^a[i];
+    public static int maxArea() {//L-11 container with most water
+        int[] height = {1,8,6,2,5,4,8,3,7};
+        int n = height.length, left = 0 , right = n-1 , maxarea = 0;
+        while(left<right){
+            int area = Math.min(height[left],height[right])*(right-left);
+            maxarea = Math.max(area,maxarea);
+
+            if(height[left]<height[right]) left++;
+            else right--;
         }
-        return ans;
+     return maxarea;
     }
+
+    public static int[] productExceptSelf(int[] a) {//L-238
+        int n = a.length ;
+        int left[] = new int[n],
+                right[] = new int[n];
+        left[0] = 1;
+        right[n-1] = 1;
+        for(int i=1;i<n;i++){
+            left[i] = left[i-1]*a[i-1];
+        }
+        for(int i=n-2;i>=0;i--){
+            right[i] = right[i+1]*a[i+1];
+        }
+
+        for(int i = 0;i<n;i++){
+            a[i] = right[i]*left[i];
+        }
+
+        return a;
+    }
+
+public static int[] moveZero(int a[]){ //L-283
+        for(int j=0,i=0;i<a.length;i++){
+            if(a[i]!=0){
+                int temp = a[i];
+                a[i] = a[j];
+                a[j++] = temp;
+            }
+        }
+        return a;
+}
+
+public static int removeDuplicates(int[] a){//L-26
+        int n = a.length,i,j;
+        for(i=0,j=0;j<n;j++){
+            if(a[i]!=a[j]){
+                i++;
+                a[i] = a[j];
+            }
+        }
+        return i+1;
+
+}
+
+
+
 
     public static int missingnum(int[] a) {
         int n = a.length;
@@ -400,21 +461,66 @@ public class Arrayjava {
         return a;
     }
 
-    static boolean linearSearch(int a[],int target){
-        for(int i=0;i<a.length;i++){
-            if(target == a[i]) return true;
+
+
+
+
+    static int[] firstLastaddNmulti(int []a){
+        int n = a.length;
+        for(int i=0;i<n;i++){
+            int temp = a[i];
+            while(temp>10){
+                temp/=10;
+            }
+            int first = temp;
+            int last = a[i]%10;
+
+
+            if((first+last)%2==0) a[i] = first+last;
+            else a[i] = first*last;
         }
-        return false;
+        return a;
     }
 
-    static boolean binarySearch(int a[],int target){
-        int lower = 0,higher = a.length-1;
-        while(lower<=higher){
-            int middle = lower+higher/2;
-            if(target==a[middle]) return true;
-            else if(target<a[middle]) higher = middle-1;
-            else lower = middle+1;
+    static int[] printnotoArray(int n){
+        int a = 8394,
+                temp = a,
+                max = Integer.MIN_VALUE,div = 1;
+
+        while (temp > 0) {
+            div *=10;
+            max = Math.max(max, temp % 10);
+            temp /= 10;
         }
-        return false;
+        int res[] = new int[max];
+        div/=10;
+        int l = div;
+        temp = a;
+
+        for (int i=0;i< res.length;i++){
+            if(div==0) {
+                div = l;
+                temp = a;
+            }
+            res[i] = (temp/div)%10;
+            div/=10;
+        }
+
+        return res;
     }
+
+    static int findnoincharArray(char a[]){
+        int sum = 0;
+
+        for(int i=0; i < a.length;i++){
+            if(a[i]>='0' && a[i]<='9'){
+                sum+=(int)(a[i]-'0');
+            }
+        }
+
+        return sum;
+    }
+
+
+
 }

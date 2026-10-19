@@ -2,13 +2,13 @@ package Tabrezclass;
 
 public class Patterns {
     public static void main(String[] args) throws Exception {
-//        star1();
+      //  star1(9);
 //        System.out.println();
 
-//        star2(11);
+//       star2(11);
 //        System.out.println();
 
-//        star3(9);
+//      star3(9);
 //        System.out.println();
 
 
