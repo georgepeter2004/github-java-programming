@@ -71,4 +71,23 @@ public class Sorting {
         }
         return largest;
     }
+
+    static void merge(int a[],int l,int m,int h){
+        int[] k = new int[a.length];
+
+        int x=0;//maintaining index
+        int left = l,right = m+1;
+
+        while(left<=m && right<=h){
+            if(a[left]<=a[right]) k[x++] = a[left++];
+            else k[x++] = a[right++];
+        }
+
+        while(left<=m) k[x++] = a[left++];
+        while(right<=h) k[x++] = a[right++];
+
+        x=0;
+        for (int i=l;i<=h;i++) a[i] = k[x++];
+
+    }
 }
