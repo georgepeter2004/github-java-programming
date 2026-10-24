@@ -4,7 +4,10 @@ import java.util.Arrays;
 
 public class Sorting {
     public static void main(String[] args) {
-
+        int a[] = {8,4,5,1,0,3,2};
+        System.out.println(Arrays.toString(a));
+        divide(a,0,a.length-1);
+        System.out.println(Arrays.toString(a));
     }
 
     static void bubbleSort(int a[]){
@@ -62,5 +65,33 @@ public class Sorting {
             if (a[i] > largest) largest = a[i];
         }
         return largest;
+    }
+
+    public static void divide(int a[],int l,int h){
+        if(l==h) return ;
+        int m = (l+h)/2;
+
+        divide(a,l,m);//left
+        divide(a,m+1,h);//right
+        merge(a,l,m,h);
+    }
+
+    static void merge(int a[],int l,int m,int h){
+        int[] k = new int[a.length];
+
+        int x=0;//maintaining index
+        int left = l,right = m+1;
+
+        while(left<=m && right<=h){
+            if(a[left]<=a[right]) k[x++] = a[left++];
+            else k[x++] = a[right++];
+        }
+
+        while(left<=m) k[x++] = a[left++];
+         while(right<=h) k[x++] = a[right++];
+
+         x=0;
+         for (int i=l;i<=h;i++) a[i] = k[x++];
+
     }
 }
