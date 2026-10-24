@@ -4,9 +4,10 @@ import java.util.*;
 
 public class Arrayjava {
     public static void main(String[] args) {
-        int a[] = {1,1,2,4,2};
-        System.out.println(Arrays.toString(removedup(a)));
+        int a[] = {1,4,6,7,8},b[] = {1,2,2,3,6,9,10};
+        int res[] = mergeArray(a,b);
 
+        System.out.println(Arrays.toString(res));
     }
 
     static void arraydemo() {
@@ -520,5 +521,21 @@ public static int removeDuplicates(int[] a){//L-26
 
         return sum;
     }
+
+    static int[] mergeArray(int a[],int b[]){
+        int res[] = new int[a.length+b.length];
+        int i=0,left=0,right=0;
+        while(left<a.length && right<b.length){
+            if(a[left]<b[right]) res[i++] = a[left++];
+            else res[i++] = b[right++];
+        }
+
+        while(left<a.length) res[i++] = a[left++];
+        while(right<b.length) res[i++] = b[right++];
+
+        return res;
+    }
+
+
 
 }

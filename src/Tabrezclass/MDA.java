@@ -6,14 +6,14 @@ import java.util.Scanner;
 public class MDA {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
-        int a[][] = createArray();
+        int a[][] = {
+                {8,3,1,4},
+                {2,1,-6,7},
+                {3,7,8,9,4},
+        };
 
-        for(int i=0;i< a.length;i++){
-            for(int j =0;j<a[i].length;j++){
-                System.out.print(a[i][j]+" ");
-            }
-            System.out.println();
-        }
+
+
     }
 
     public static int[][] createArray(){
@@ -37,4 +37,44 @@ public class MDA {
 
         return res;
     }
+
+    public static int smallestElement2d(int a[][]){
+        int smallest = Integer.MAX_VALUE;
+
+        for(int i=0;i<a.length;i++)
+        {
+            for(int j=0;j<a[i].length;j++){
+                smallest = Math.min(smallest,a[i][j]);
+            }
+        }
+        return smallest;
+    }
+
+    public static void reverseEven2dArray(int a[][]){
+        for(int i=0;i<a.length;i++){
+            if(i%2==0){
+                int left = 0,right = a[i].length-1;
+                while(left<right){
+                    int temp = a[i][left];
+                    a[i][left++] = a[i][right];
+                    a[i][right--] = temp;
+                }
+            }
+            for(int j=0;j<a[i].length;j++){
+                System.out.print(a[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void display(int a[][]){
+
+        for(int i=0;i< a.length;i++){
+            for(int j=0;j<a[i].length;j++){
+                System.out.print(a[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
+
 }
