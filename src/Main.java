@@ -1,57 +1,28 @@
+import Tabrezclass.Arrayjava;
+
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int a[] = {1,1,2,5,5,6},x=0;
-        int b[] = {1,1,2,3,3,4,7,7},y=0;
-        int res[] = new int[a.length+b.length];
-        res[0] = a[0];
-        for(int i = 1;i<res.length;i++){
-            if(a[x]==b[y]) {
-                if(a[x]!=res[i-1]){
-                    res[i] = a[i];
-                    x++;
-                    y++;
-                }
+        Arrayjava s1 = new Arrayjava();
+        int a[] = {10,4,6,8,1,2,3};
+        System.out.println(Arrays.toString(a));
 
-                else {
-                    x++;
-                    y++;
-                }
+        int res[] = new int[s1.largestElement(a)+1];
 
-            }
-            else if(a[x]>b[y]) {
-                if(a[x]!=res[i-1]){
-                    res[i] = a[x++];
-                }
-
-                else if(b[y]!=res[i-1]){
-                        res[i] = b[y++];
-                    }
-
-                else {
-                    x++;
-                    y++;
-                }
-
-            }
-            else {
-                if(b[y]!=res[i-1]){
-                    res[i] = b[y++];
-                }
-                else if (a[x]!=res[i-1]){
-                    res[i]=a[x++];
-                }
-                else {
-                    x++;
-                    y++;
-                }
-            }
-
-            System.out.println(Arrays.toString(res));
+        for(int i=0;i<a.length ;i++){
+            res[a[i]]++;
         }
 
+        int x=0;
 
+        for(int i=0;i<res.length;i++){
+            while(res[i]>0){
+                a[x++] = i;
+                res[i]--;
+            }
+        }
+        System.out.println(Arrays.toString(a));
     }
 }
 

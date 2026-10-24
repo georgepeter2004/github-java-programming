@@ -5,6 +5,10 @@ import java.util.Arrays;
 public class Sorting {
     public static void main(String[] args) {
 
+        int a[] = {10,4,6,8,1,2,3};
+        System.out.println(Arrays.toString(a));
+        countingSort(a);
+        System.out.println(Arrays.toString(a));
     }
 
     static void bubbleSort(int a[]){
@@ -40,7 +44,7 @@ public class Sorting {
     }
 
 
-    public static void CountingSort(int a[]){
+    public static void countingSort(int a[]){
         int n = a.length;
 
         int res[] = new int[largestElement(a)+1];
@@ -51,6 +55,10 @@ public class Sorting {
 
         int x = 0;
         for(int i=0;i<res.length;i++){
+            while(res[i]>0){
+                a[x++]=i;
+                res[i]--;
+            }
         }
 
     }
