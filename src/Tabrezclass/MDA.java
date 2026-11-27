@@ -40,11 +40,13 @@ public class MDA {
 
     public static int smallestElement2d(int a[][]){
         int smallest = Integer.MAX_VALUE;
+//        int greatest = Integer.MIN_VALUE;
 
         for(int i=0;i<a.length;i++)
         {
             for(int j=0;j<a[i].length;j++){
                 smallest = Math.min(smallest,a[i][j]);
+//                greatest = Math.max(greatest,a[i][j]);
             }
         }
         return smallest;

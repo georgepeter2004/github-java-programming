@@ -5,7 +5,7 @@ import java.util.*;
 public class Arrayjava {
     public static void main(String[] args) {
         int a[] = {1,4,6,7,8},b[] = {1,2,2,3,6,9,10};
-        int res[] = mergeArray(a,b);
+        int res[] = AuB(a,b);
 
         System.out.println(Arrays.toString(res));
     }
@@ -536,6 +536,53 @@ public static int removeDuplicates(int[] a){//L-26
         return res;
     }
 
+
+    static int[] AuB(int a[],int b[]){
+        int left =0,right = 0,last = 0,i=0;
+        int res[] = new int[a.length+b.length];
+
+        while(left<a.length && right<b.length){
+            if(a[left]<b[right]){
+                if(last != a[left]){
+                    res[i++] = a[left];
+                    last = a[left++];
+                }
+            }
+
+            else if(a[left]>b[right]){
+                if(last != a[right]){
+                    res[i++] = a[right];
+                    last = a[right++];
+                }
+            }
+            else {
+                if(last != b[right]){
+                    res[i++] = b[right];
+                    last = b[right++];
+                    left++;
+                }
+
+            }
+        }
+
+        while(left<a.length){
+            if(last != a[left]){
+                res[i++] = a[left];
+                last = a[left++];
+            }
+        }
+
+        while(right<b.length){
+            if(last != a[right]){
+                res[i++] = a[right];
+                last = a[right++];
+            }
+        }
+
+        res = Arrays.copyOf(res,i);
+
+        return res;
+    }
 
 
 }
